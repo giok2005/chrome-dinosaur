@@ -1,5 +1,5 @@
 #include <ncurses.h>
-
+/**L/**La funzione dinosaur1 stampa con i caratteri ASCII il primo frame di corsa del dinosauro*/
 void dinosaur1(int y, int x) {
 	mvprintw(y-4, x, "          e-e  ");
 	mvprintw(y-3, x, "        /(\\_/)");
@@ -7,7 +7,7 @@ void dinosaur1(int y, int x) {
 	mvprintw(y-1, x, " '-._, )/'");
 	mvprintw(y, x,   "      \\/");
 }
-
+/**La funzione dinosaur2 stampa con i caratteri ASCII il secondo frame di corsa del dinosauro*/
 void dinosaur2(int y, int x) {
 	mvprintw(y-4, x, "          e-e  ");
 	mvprintw(y-3, x, "        /(\\_/)");
@@ -15,7 +15,7 @@ void dinosaur2(int y, int x) {
 	mvprintw(y-1, x, " '-._, )/'");
 	mvprintw(y, x,   "      /\\");
 }
-
+/**La funzione cactus1 stampa con i caratteri ASCII il primo tipo di cactus che possiamo incontrare nel gioco*/
 void cactus1(int y, int x) {
 	mvprintw(y-5, x, "    _ ");
 	mvprintw(y-4, x, " _ ( )   ");
@@ -24,7 +24,7 @@ void cactus1(int y, int x) {
 	mvprintw(y-1, x, "   |  /'");
 	mvprintw(y, x, "   | |");
 }
-
+/**La funzione cactus2 stampa con i caratteri ASCII il secondo tipo di cactus che possimao incontrare nel gioco*/
 void cactus2(int y, int x) {
 	init_pair(5,COLOR_GREEN,COLOR_BLACK);
 	attron(COLOR_PAIR(5));
@@ -37,7 +37,7 @@ void cactus2(int y, int x) {
 	mvprintw(y, x, "   | |");
 	attroff(COLOR_PAIR(5));
 }
-
+/**La funzione sun stampa il sole con i caratteri ASCII*/
 void sun(int y, int x) {
 	attron(COLOR_PAIR(6));
 	mvprintw(y-8, x, "      ;   :   ;");
@@ -51,7 +51,7 @@ void sun(int y, int x) {
 	mvprintw(y, x, "      ;   :   ;");
 	attroff(COLOR_PAIR(6));
 }
-
+/**La funzione sun stampa la luna con i caratteri ASCII*/
 void moon(int y, int x) {
 	attron(COLOR_PAIR(4));
 	mvprintw(y-8, x, "                      ");
@@ -65,7 +65,7 @@ void moon(int y, int x) {
 	mvprintw(y, x, "    ```                 ");
 	attroff(COLOR_PAIR(4));
 }
-
+/**La funzione showLoss mostra appunto la scritta di game-over*/
 void showLoss(int y, int x) {
 	mvprintw(y-6, x-15, "88");
 	mvprintw(y-5, x-15, "88");
@@ -78,7 +78,7 @@ void showLoss(int y, int x) {
 	mvprintw(y+3, x-15, "Press 'r' to play again!");
 	mvprintw(y+4, x-15, "Or 'q' to exit from game.");
 }
-
+/**La funzione showTrex stampa e mostra la scritta 'trex'*/
 void showTrex(int x, int y) {
 	mvprintw(x-7, y-25, "  ,d");
 	mvprintw(x-6, y-25, "  88");
@@ -89,7 +89,7 @@ void showTrex(int x, int y) {
 	mvprintw(x-1, y-25, "  \"Y888 88          `\"Ybbd8\"' 8P\'     `Y8");
 }
 
-
+/**La funzione clearCactus1 rimuove dallo schermo i vari tipi di cactus*/
 void clearCactus1(int y, int x) {
 	mvprintw(y-6, x+7, "        ");
 	mvprintw(y-5, x+8, "           ");
@@ -108,7 +108,7 @@ void clearCactus1(int y, int x) {
 		mvprintw(y, 0, "    ");
 	}
 }
-
+/**La funzione cleardinosaurDown rimuove dallo schermo il dinosaur quando appunto e' giu' e non sta saltando*/
 void cleardinosaurDown(int diY, int diX) {
 	mvprintw(diY+3, diX+10, "              ");
 	mvprintw(diY+4, diX+8, "              ");
@@ -116,7 +116,7 @@ void cleardinosaurDown(int diY, int diX) {
 	mvprintw(diY+6, diX, "                 ");
 	mvprintw(diY+7, diX, "                "); 
 }
-
+/**La funzione cleardinosaurUp rimuove dallo schermo il dinosaur qualora stesse saltando al momento del game-over*/
 void cleardinosaurUp(int diY, int diX) {
     mvprintw(diY-7, diX+4, "         ");
 	mvprintw(diY-8, diX+1, "               ");
