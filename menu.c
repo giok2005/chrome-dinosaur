@@ -6,9 +6,11 @@
 #include "menu.h"
 #include "game.h"
 #include "appearance.h"
-
-
-void startMenu() {
+/**
+\fn void startMenu()
+\brief Contiene le informazioni che servono o ci chiedono per il gioco come il nome, il vecchio nome,l'età,ci mostreà il trex
+*/
+void startMenu() {         
 	struct user firstUser;
 	int highScore;
     // Read high score
@@ -35,7 +37,11 @@ void startMenu() {
 	noecho();
 	startEngine(highScore, firstUser);
 }
-
+/**
+/fn void endGame(int score, int highScore, int diY, int diX, struct user firstUser)
+/brief Questa funzione serve per quando il giocatore avrà perso la partita,ci farà vedere il punteggio che abbiamo fatto che in caso che abbiamo superato il record lo sostitiura.
+Dopo ci darà l'opzione se vogliamo riprovare o uscire dal gioco.
+*/
 void endGame(int score, int highScore, int diY, int diX, struct user firstUser) {
 	nodelay(stdscr, FALSE);
 	init_pair(2,COLOR_RED,COLOR_BLACK);
@@ -66,3 +72,4 @@ void endGame(int score, int highScore, int diY, int diX, struct user firstUser) 
 		endGame(score, highScore, diY, diX, firstUser);
 	}
 }
+
