@@ -8,6 +8,9 @@
 #include "appearance.h"
 #include "minunit.h"
 
+
+
+
 // Check if the game is going to be finished in this turn of loop
 int checkGame(int y, int x, int diY, int diX) {
 	if (diY == y) {
@@ -17,6 +20,7 @@ int checkGame(int y, int x, int diY, int diX) {
 	}
 	return 1;
 }
+
 
 // Make game faster
 int computeTime(int delayTime) {
@@ -188,7 +192,48 @@ static char * test_foo() {
 static char * test_bar() {
     mu_assert("error, bar != 5", bar == 5);
 }
+void testsCheckGame(){
 
+	int oracolo=1;
+	mu_assert("Errore,di diY diverso da y!",
+	checkGame(0,1,4,1)==oracolo);
+
+	int oracolo=0;
+	mu_assert("errore,il calcolo non fa essere <=4!",
+	checkGame(2,1,2,4)==oracolo);
+
+    int oracolo=0;
+	mu_assert("errore,il calcolo non fa essere <=4!",
+	checkGame(2,3,2,14)==oracolo);
+
+	int oracolo=1;
+	mu_assert("Errore,di diY diverso da y!",
+	checkGame(5,1,2,4)==oracolo);
+
+	int oracolo=1;
+	mu_assert("Errore,di diY diverso da y!",
+	checkGame(4,3,7,3)==oracolo);
+
+	int oracolo=1;
+    mu_assert("Errore,di diY diverso da y!",
+	checkGame(3,1,-1,0)==oracolo);
+
+	int oracolo=0;
+	mu_assert("errore,il calcolo non fa essere <=4!",
+	checkGame(3,5,3,12)==oracolo);
+
+	int oracolo=0;
+	mu_assert("errore,il calcolo non fa essere <=4!",
+	checkGame(5,6,5,16)==oracolo);
+
+	int oracolo=0;
+	mu_assert("errore,il calcolo non fa essere <=4!",
+	checkGame(0,4,0,2)==oracolo);
+
+	int oracolo=0;
+	mu_assert("errore,il calcolo non fa essere <=4!",
+	checkGame(7,3,7,10)==oracolo);	
+}
 // put all tests here
 void all_tests() {
 	mu_run_test(test_foo);
